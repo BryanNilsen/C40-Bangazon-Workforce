@@ -1,0 +1,18 @@
+[
+    {
+        "model": "hrapp.employeetrainingprogram",
+        "pk": 1,
+        "fields": {
+            "employee_id": 1,
+            "trainingprogram_id": 1
+        }
+    },
+    {
+        "model": "hrapp.employeetrainingprogram",
+        "pk": 2,
+        "fields": {
+            "employee_id": 2,
+            "trainingprogram_id": 2
+        }
+    }
+]

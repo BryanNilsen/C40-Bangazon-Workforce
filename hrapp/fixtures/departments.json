@@ -1,0 +1,18 @@
+[
+    {
+        "model": "hrapp.department",
+        "pk": 1,
+        "fields": {
+            "name": "HR",
+            "budget": 13000.00
+        }
+    },
+    {
+        "model": "hrapp.department",
+        "pk": 2,
+        "fields": {
+            "name": "Sales",
+            "budget": 45000.00
+        }
+    }
+]
