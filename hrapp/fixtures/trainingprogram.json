@@ -1,0 +1,22 @@
+[
+    {
+        "model": "hrapp.trainingprogram",
+        "pk": 1,
+        "fields": {
+            "title": "Social Media Limitations",
+            "start_date": "2020-09-21 12:00:00-0600",
+            "end_date": "2020-09-22 17:00:00-0600",
+            "capacity": 50
+        }
+    },
+    {
+        "model": "hrapp.trainingprogram",
+        "pk": 2,
+        "fields": {
+            "title": "Dealing with COVID",
+            "start_date": "2020-08-26 13:00:00-0600",
+            "end_date": "2020-08-29 18:00:00-0600",
+            "capacity": 10
+        }
+    }
+]

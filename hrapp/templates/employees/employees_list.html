@@ -4,11 +4,12 @@
 <h1>Employees</h1>
 
 <ol>
-{% for employee in employees %}
+    {% for employee in employees %}
     <li>
         <p>{{ employee }}</p>
-        Current computer: {{employee.computer}}
+        <p>Department: {{employee.department}}</p>
+        <p>Current computer: {{employee.computer.make}}</p>
     </li>
-{% endfor %}
+    {% endfor %}
 </ol>
 {% endblock content %}

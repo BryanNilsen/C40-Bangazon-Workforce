@@ -1,0 +1,24 @@
+[
+    {
+        "model": "hrapp.employee",
+        "pk": 1,
+        "fields": {
+            "first_name": "Luke",
+            "last_name": "Skywalker",
+            "start_date": "2014-04-05",
+            "is_supervisor": false,
+            "department_id": 1
+        }
+    },
+    {
+        "model": "hrapp.employee",
+        "pk": 2,
+        "fields": {
+            "first_name": "Leia",
+            "last_name": "Organa",
+            "start_date": "2018-07-10",
+            "is_supervisor": true,
+            "department_id": 2
+        }
+    }
+]
