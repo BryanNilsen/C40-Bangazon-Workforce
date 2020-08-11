@@ -11,3 +11,10 @@ from hrapp_employee e
     join hrapp_department d on e.department_id = d.id
     join hrapp_employeecomputer ec on e.id = ec.employee_id
     join hrapp_computer c on ec.computer_id = c.id;
+select d.id,
+    d.name,
+    d.budget,
+    COUNT(e.id) as employee_count
+FROM hrapp_department d
+    JOIN hrapp_employee e ON d.id = e.department_id
+GROUP BY d.name;
