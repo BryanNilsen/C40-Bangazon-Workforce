@@ -2,12 +2,15 @@
 
 {% block content %}
 <h1>Employees</h1>
-
+{% if user.is_authenticated %}
+<h3><a href="{% url 'hrapp:employee_form' %}">Add Employee</a></h3>
+{% endif %}
 <ol>
     {% for employee in employees %}
     <li>
         <p>{{ employee }}</p>
-        <p>Department: {{employee.department}}</p>
+        <p>Department: {{employee.department}} {% if employee.is_supervisor == 1%} - <em>(Supervisor)</em> {% endif %}
+        </p>
         <p>Current computer: {{employee.computer.make}}</p>
     </li>
     {% endfor %}

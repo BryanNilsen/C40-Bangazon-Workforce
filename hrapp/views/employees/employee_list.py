@@ -23,9 +23,9 @@ def employee_list(request):
                     c.id as computer_id,
                     c.make as computer_make
                 from hrapp_employee e
-                    join hrapp_department d on e.department_id = d.id
-                    join hrapp_employeecomputer ec on e.id = ec.employee_id
-                    join hrapp_computer c on ec.computer_id = c.id;
+                    left join hrapp_department d on e.department_id = d.id
+                    left join hrapp_employeecomputer ec on e.id = ec.employee_id
+                    left join hrapp_computer c on ec.computer_id = c.id;
             """)
 
             all_employees = []
@@ -58,6 +58,9 @@ def employee_list(request):
     # HANDLE POST REQUEST
     if request.method == 'POST':
         form_data = request.POST
+        is_supervisor = 0
+        if 'is_supervisor' in form_data:
+            is_supervisor = 1
 
         with sqlite3.connect(Connection.db_path) as conn:
             db_cursor = conn.cursor()
@@ -69,6 +72,6 @@ def employee_list(request):
                 is_supervisor, department_id
             )
             VALUES (?, ?, ?, ?, ?)
-            """, (form_data['first_name'], form_data['last_name'], form_data['start_date'], form_data['is_supervisor'],  form_data["department_id"]))
+            """, (form_data['first_name'], form_data['last_name'], form_data['start_date'], is_supervisor,  form_data["department_id"]))
 
-        return redirect(reverse('hrapp:employees_list'))
+        return redirect(reverse('hrapp:employee_list'))
