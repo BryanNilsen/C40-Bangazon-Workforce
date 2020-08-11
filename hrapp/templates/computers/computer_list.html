@@ -4,7 +4,7 @@
 <ol>
     {% for computer in computers %}
     <li>
-        <p>{{ computer }}</p>
+        <p><a href="{% url 'hrapp:computer' computer.id %}">{{ computer }}</a></p>
         <p>Purchased: {{ computer.purchase_date }}</p>
         <p>Decommissioned: {{ computer.decommission_date }}</p>
     </li>
