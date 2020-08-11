@@ -8,9 +8,9 @@ select e.id,
     c.id as computer_id,
     c.make as computer_make
 from hrapp_employee e
-    join hrapp_department d on e.department_id = d.id
-    join hrapp_employeecomputer ec on e.id = ec.employee_id
-    join hrapp_computer c on ec.computer_id = c.id;
+    left join hrapp_department d on e.department_id = d.id
+    left join hrapp_employeecomputer ec on e.id = ec.employee_id
+    left join hrapp_computer c on ec.computer_id = c.id;
 select d.id,
     d.name,
     d.budget,

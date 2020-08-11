@@ -6,7 +6,7 @@
     {% for department in departments %}
     <li>
         <p>{{ department }}</p>
-        <p>Budget: {{department.budget|floatformat:2|intcomma}}</p>
+        <p>Budget: ${{department.budget|floatformat:2|intcomma}}</p>
         <p>Employee Count: {{ department.employee_count }}</p>
     </li>
     {% endfor %}
