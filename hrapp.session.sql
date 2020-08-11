@@ -18,3 +18,11 @@ select d.id,
 FROM hrapp_department d
     JOIN hrapp_employee e ON d.id = e.department_id
 GROUP BY d.name;
+select t.id,
+    t.title,
+    t.start_date,
+    t.end_date,
+    t.capacity
+from hrapp_trainingprogram t
+where t.end_date >= DATETIME('now');
+delete from hrapp_trainingprogram;

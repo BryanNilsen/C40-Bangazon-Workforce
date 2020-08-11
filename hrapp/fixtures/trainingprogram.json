@@ -4,8 +4,8 @@
         "pk": 1,
         "fields": {
             "title": "Social Media Limitations",
-            "start_date": "2020-09-21 12:00:00-0600",
-            "end_date": "2020-09-22 17:00:00-0600",
+            "start_date": "2020-09-21 12:00:00",
+            "end_date": "2020-09-22 17:00:00",
             "capacity": 50
         }
     },
@@ -14,9 +14,39 @@
         "pk": 2,
         "fields": {
             "title": "Dealing with COVID",
-            "start_date": "2020-08-26 13:00:00-0600",
-            "end_date": "2020-08-29 18:00:00-0600",
+            "start_date": "2020-08-26 13:00:00",
+            "end_date": "2020-08-29 18:00:00",
             "capacity": 10
+        }
+    },
+    {
+        "model": "hrapp.trainingprogram",
+        "pk": 3,
+        "fields": {
+            "title": "Ethics and Responsibility",
+            "start_date": "2020-04-15 12:00:00",
+            "end_date": "2020-04-15 17:00:00",
+            "capacity": 100
+        }
+    },
+    {
+        "model": "hrapp.trainingprogram",
+        "pk": 4,
+        "fields": {
+            "title": "Google Computing",
+            "start_date": "2020-06-03 13:00:00",
+            "end_date": "2020-06-04 18:00:00",
+            "capacity": 25
+        }
+    },
+    {
+        "model": "hrapp.trainingprogram",
+        "pk": 5,
+        "fields": {
+            "title": "Professionalism in the Workplace",
+            "start_date": "2020-12-01 13:00:00",
+            "end_date": "2020-12-04 18:00:00",
+            "capacity": 45
         }
     }
 ]

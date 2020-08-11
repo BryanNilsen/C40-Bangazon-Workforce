@@ -3,6 +3,13 @@ from django.urls import reverse
 
 
 class Department(models.Model):
+    '''
+        description: This class creates a department and its properties
+        author: Bryan Nilsen
+        properties:
+        name: This property will contain the name of the department.
+        budget: This property contains the budget in decimal form.
+    '''
 
     name = models.CharField(max_length=100)
     budget = models.DecimalField(max_digits=20, decimal_places=2)

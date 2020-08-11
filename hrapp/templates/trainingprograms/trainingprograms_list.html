@@ -1,0 +1,18 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+<h1>Training Programs</h1>
+{% if user.is_authenticated %}
+<h3><a href="{% url 'hrapp:trainingprogram_form' %}">Add Training Program</a></h3>
+{% endif %}
+<ol>
+    {% for trainingprogram in trainingprograms %}
+    <li>
+        <p>{{ trainingprogram }}</p>
+        <p>Start: {{trainingprogram.start_date}}</p>
+        <p>End: {{trainingprogram.end_date}}</p>
+        <p>Capacity: {{trainingprogram.capacity}}</p>
+    </li>
+    {% endfor %}
+</ol>
+{% endblock content %}
