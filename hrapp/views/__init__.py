@@ -4,5 +4,6 @@ from .departments.department_list import department_list
 from .employees.employee_list import employee_list
 from .employees.employee_form import employee_form
 from .computers.computer_list import computer_list
+from .computers.computer_detail import computer_details
 from .auth.logout import logout_user
 from .home import home
