@@ -25,4 +25,4 @@ select t.id,
     t.capacity
 from hrapp_trainingprogram t
 where t.end_date >= DATETIME('now');
-
+delete from hrapp_trainingprogram;

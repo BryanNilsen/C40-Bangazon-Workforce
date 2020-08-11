@@ -3,13 +3,12 @@
 {% block content %}
 <h1>Training Programs</h1>
 {% if user.is_authenticated %}
-<h3><a href="#">Add Training Program</a></h3>
+<h3><a href="{% url 'hrapp:trainingprogram_form' %}">Add Training Program</a></h3>
 {% endif %}
 <ol>
     {% for trainingprogram in trainingprograms %}
     <li>
         <p>{{ trainingprogram }}</p>
-        <!-- {{ value|date:"N j, o,"  }} {{ value|time:"P"}} -->
         <p>Start: {{trainingprogram.start_date}}</p>
         <p>End: {{trainingprogram.end_date}}</p>
         <p>Capacity: {{trainingprogram.capacity}}</p>
