@@ -26,3 +26,8 @@ select t.id,
 from hrapp_trainingprogram t
 where t.end_date >= DATETIME('now');
 delete from hrapp_trainingprogram;
+select c.id,
+    c.make,
+    c.purchase_date,
+    c.decommission_date
+from hrapp_computer c

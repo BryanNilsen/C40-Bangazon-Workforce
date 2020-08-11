@@ -18,6 +18,9 @@ class Computer(models.Model):
     decommission_date = models.DateField(null=True, blank=True, default=None)
     employees = models.ManyToManyField("Employee", through='EmployeeComputer')
 
+    def __str__(self):
+        return f"{self.make}"
+
     class Meta:
         verbose_name = ("Computer")
         verbose_name_plural = ("Computers")
