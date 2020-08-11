@@ -20,5 +20,27 @@
             "is_supervisor": true,
             "department_id": 2
         }
+    },
+    {
+        "model": "hrapp.employee",
+        "pk": 3,
+        "fields": {
+            "first_name": "Han",
+            "last_name": "Solo",
+            "start_date": "2018-01-19",
+            "is_supervisor": false,
+            "department_id": 2
+        }
+    },
+    {
+        "model": "hrapp.employee",
+        "pk": 4,
+        "fields": {
+            "first_name": "Chew",
+            "last_name": "Bacca",
+            "start_date": "2003-12-15",
+            "is_supervisor": false,
+            "department_id": 2
+        }
     }
 ]
