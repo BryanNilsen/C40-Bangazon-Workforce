@@ -20,6 +20,8 @@ urlpatterns = [
          delete_computer, name='computer_delete'),
     path('computers/form', computer_form, name='computer_form'),
     path('trainingprograms/', trainingprogram_list, name='trainingprogram_list'),
+    path('trainingprograms/past', trainingprogram_past,
+         name='trainingprogram_past'),
     path('trainingprograms/form', trainingprogram_form,
          name='trainingprogram_form')
 ]

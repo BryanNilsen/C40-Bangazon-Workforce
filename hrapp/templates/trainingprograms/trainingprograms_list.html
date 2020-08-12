@@ -3,6 +3,11 @@
 {% block content %}
 <h1>Training Programs</h1>
 {% if user.is_authenticated %}
+{% if past %}
+<h3><a href="{% url 'hrapp:trainingprogram_list' %}">View Current Programs</a></h3>
+{% else %}
+<h3><a href="{% url 'hrapp:trainingprogram_past' %}">View Past Programs</a></h3>
+{% endif %}
 <h3><a href="{% url 'hrapp:trainingprogram_form' %}">Add Training Program</a></h3>
 {% endif %}
 <ol>
@@ -15,4 +20,5 @@
     </li>
     {% endfor %}
 </ol>
+
 {% endblock content %}
