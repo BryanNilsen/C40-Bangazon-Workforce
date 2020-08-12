@@ -23,10 +23,12 @@ def get_department(department_id):
         """, (department_id,))
 
         dataset = db_cursor.fetchall()
+        
         department = Department()
         department.id = dataset[0]['id']
         department.name = dataset[0]['name']
         department.budget = dataset[0]['budget']
+
         department.employees = []
 
         for row in dataset:

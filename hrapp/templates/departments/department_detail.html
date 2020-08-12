@@ -1,9 +1,9 @@
 {% extends 'shared/base.html' %}
 {% block content %}
 <h1>Department Detail</h1>
-<p>{{ department.name }}</p>
-<p>{{ department.budget }}</p>
-<p>Employees</p>
+<h2>{{ department.name }}</h2>
+<p>Budget: {{ department.budget }}</p>
+<h3>Employees</h3>
 <!-- iterate employees -->
 {% if department.employees|length > 0 %}
 <ol>
