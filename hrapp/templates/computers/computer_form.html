@@ -1,0 +1,29 @@
+{% extends 'shared/base.html' %}
+{% block content %}
+
+<h1>Add Computer</h1>
+<form action="{% url 'hrapp:computer_list' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <label for="make">Make: </label>
+        <input id="make" type="text" name="make" value="{{ employee.make }}">
+    </fieldset>
+    <fieldset>
+        <label for="purchase_date">Purchase Date: </label>
+        <input id="purchase_date" type="date" name="purchase_date" value="{{ employee.purchase_date }}">
+    </fieldset>
+    <fieldset>
+        <label for="employee_id">Assign Employee: </label>
+        <select id="employee_id" type="text" name="employee_id">
+            <option value="0">Select Employee</option>
+            {% for employee in all_employees %}
+            <option value="{{ employee.id }}">
+                {{ employee }}</option>
+            {% endfor %}
+        </select>
+    </fieldset>
+    <input type="submit" value="Create" />
+
+</form>
+
+{% endblock %}
