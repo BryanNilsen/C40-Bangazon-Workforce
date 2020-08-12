@@ -9,6 +9,8 @@
         <p><a href="{% url 'hrapp:computer' computer.id %}">{{ computer }}</a></p>
         <p>Purchased: {{ computer.purchase_date }}</p>
         <p>Decommissioned: {{ computer.decommission_date }}</p>
+        <!-- TODO CURRENTLY ASSIGNED EMPLOYEE -->
+        <p>CURRENTLY ASSIGNED EMPLOYEE</p>
     </li>
     {% endfor %}
 </ol>
