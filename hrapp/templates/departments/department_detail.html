@@ -1,0 +1,17 @@
+{% extends 'shared/base.html' %}
+{% block content %}
+<h1>Department Detail</h1>
+<p>{{ department.name }}</p>
+<p>{{ department.budget }}</p>
+<p>Employees</p>
+<!-- iterate employees -->
+{% if department.employees|length > 0 %}
+<ol>
+    {% for employee in department.employees %}
+    <li>{{employee.fullname}}</li>
+    {% endfor %}
+</ol>
+{% else %}
+<p>no employees yo</p>
+{% endif %}
+{% endblock content %}
