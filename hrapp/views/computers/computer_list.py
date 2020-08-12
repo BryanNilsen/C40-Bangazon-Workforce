@@ -14,11 +14,17 @@ def computer_list(request):
             db_cursor = conn.cursor()
 
             db_cursor.execute("""
-                select c.id,
+                SELECT c.id,
                     c.make,
                     c.purchase_date,
-                    c.decommission_date
-                from hrapp_computer c
+                    c.decommission_date,
+                    e.first_name || ' ' || e.last_name as fullname,
+                    e.id as employee_id,
+                    ec.assign_date
+                FROM hrapp_computer c
+                    LEFT JOIN hrapp_employeecomputer ec on ec.computer_id = c.id
+                    LEFT JOIN hrapp_employee e on ec.employee_id = e.id
+                WHERE ec.unassign_date ISNULL;
             """)
 
             all_computers = []
@@ -30,6 +36,9 @@ def computer_list(request):
                 computer.make = row['make']
                 computer.purchase_date = row['purchase_date']
                 computer.decommission_date = row['decommission_date']
+                computer.current_employee = row['fullname']
+                computer.employee_id = row['employee_id']
+                computer.assign_date = row['assign_date']
 
                 all_computers.append(computer)
 

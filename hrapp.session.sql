@@ -52,3 +52,14 @@ select ec.id,
 from hrapp_employeecomputer ec
     join hrapp_computer c on c.id = ec.computer_id
 where ec.computer_id = 1;
+SELECT c.id,
+    c.make,
+    c.purchase_date,
+    c.decommission_date,
+    e.first_name || ' ' || e.last_name as fullname,
+    e.id as employee_id,
+    ec.assign_date
+FROM hrapp_computer c
+    LEFT JOIN hrapp_employeecomputer ec on ec.computer_id = c.id
+    LEFT JOIN hrapp_employee e on ec.employee_id = e.id
+WHERE ec.unassign_date ISNULL;
