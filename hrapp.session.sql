@@ -30,4 +30,25 @@ select c.id,
     c.make,
     c.purchase_date,
     c.decommission_date
+from hrapp_computer c;
+select e.id,
+    e.first_name,
+    e.last_name,
+    ec.computer_id
+from hrapp_employee e
+    left join hrapp_employeecomputer ec on e.id = ec.employee_id
+where ec.computer_id ISNULL
+select c.id,
+    c.make,
+    ec.computer_id
 from hrapp_computer c
+    left join hrapp_employeecomputer ec on c.id = ec.computer_id
+where ec.computer_id ISNULL
+select ec.id,
+    ec.computer_id,
+    c.make,
+    c.purchase_date,
+    c.decommission_date
+from hrapp_employeecomputer ec
+    join hrapp_computer c on c.id = ec.computer_id
+where ec.computer_id = 1;

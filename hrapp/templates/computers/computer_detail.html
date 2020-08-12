@@ -6,4 +6,9 @@
     <p>Purchased: {{ computer.purchase_date }}</p>
     <p>Decommissioned: {{ computer.decommission_date }}</p>
 </ol>
+<form action="{% url 'hrapp:computer_delete' computer.id %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="actual_method" value="DELETE">
+    <button>DELETE COMPUTER</button>
+</form>
 {% endblock content %}
