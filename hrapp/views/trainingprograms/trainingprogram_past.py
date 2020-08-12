@@ -7,17 +7,17 @@ from hrapp.views.connection import Connection
 import datetime
 
 
-def trainingprogram_list(request):
+def trainingprogram_past(request):
     '''
     This method checks request to define behavior
-    If GET, this method gets all of the training programs that have not taken place yet, combines them with the trainingprogram_list template and sends the rendered html back in the response
+    If GET, this method gets all of the training programs that have already taken place, combines them with the trainingprogram_list template and sends the rendered html back in the response
     If POST, this method will take in the form data from the trainingprogram_form template, insert a new record into the database, and rerender the list of training programs
     '''
     if request.method == 'GET':
         with sqlite3.connect(Connection.db_path) as conn:
             conn.row_factory = sqlite3.Row
             db_cursor = conn.cursor()
-            # gets programs that haven't started yet
+            # gets programs that have already started or have ended
             db_cursor.execute("""
                 select t.id,
                     t.title,
@@ -25,7 +25,7 @@ def trainingprogram_list(request):
                     t.end_date,
                     t.capacity
                 from hrapp_trainingprogram t
-                where t.start_date >= DATETIME('now');
+                where t.start_date < DATETIME('now');
             """)
 
             all_trainingprograms = []
@@ -48,27 +48,7 @@ def trainingprogram_list(request):
         template = 'trainingprograms/trainingprograms_list.html'
         context = {
             'trainingprograms': all_trainingprograms,
-            'past': False
+            'past': True
         }
 
         return render(request, template, context)
-
-    # HANDLE POST REQUEST
-    if request.method == 'POST':
-        form_data = request.POST
-        start = form_data['start_date'].replace("T", " ") + ":00"
-        end = form_data['end_date'].replace("T", " ") + ":00"
-
-        with sqlite3.connect(Connection.db_path) as conn:
-            db_cursor = conn.cursor()
-
-            db_cursor.execute("""
-            INSERT INTO hrapp_trainingprogram
-            (
-                title, start_date,
-                end_date, capacity
-            )
-            VALUES (?, ?, ?, ?)
-            """, (form_data['title'], start, end, form_data["capacity"]))
-
-        return redirect(reverse('hrapp:trainingprogram_list'))
