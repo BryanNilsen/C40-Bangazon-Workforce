@@ -1,0 +1,18 @@
+{% extends 'shared/base.html' %}
+{% block content %}
+<h1>Employee Detail</h1>
+<h2>{{ employee.first_name }} {{ employee.last_name }}</h2>
+<p>Department: {{ employee.department_name}}</p>
+<p>Computer: {{ employee.computer_make}}</p>
+<h3>Training Programs</h3>
+<!-- iterate employees -->
+{% if employee.trainingprograms|length > 0 %}
+<ol>
+    {% for program in employee.trainingprograms %}
+    <li>{{program.title}}</li>
+    {% endfor %}
+</ol>
+{% else %}
+<p>Not signed up for any training programs</p>
+{% endif %}
+{% endblock content %}

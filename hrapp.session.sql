@@ -63,12 +63,33 @@ FROM hrapp_computer c
     LEFT JOIN hrapp_employeecomputer ec on ec.computer_id = c.id
     LEFT JOIN hrapp_employee e on ec.employee_id = e.id
 WHERE ec.unassign_date ISNULL;
-
 SELECT d.id,
     d.name,
     d.budget,
     e.first_name || ' ' || e.last_name AS fullname,
     e.id as employee_id
 FROM hrapp_department d
-LEFT JOIN hrapp_employee e ON e.department_id = d.id
-WHERE d.id = 1
+    LEFT JOIN hrapp_employee e ON e.department_id = d.id
+WHERE d.id = 1;
+-- EMPLOYEE DETAIL
+SELECT e.id,
+    e.first_name,
+    e.last_name,
+    e.start_date,
+    e.is_supervisor,
+    d.id AS department_id,
+    d.name AS department_name,
+    c.id AS computer_id,
+    c.make AS computer_make,
+    tp.title AS training_title,
+    tp.id AS training_id
+FROM hrapp_employee e
+    LEFT JOIN hrapp_department d ON e.department_id = d.id
+    LEFT JOIN hrapp_employeecomputer ec ON e.id = ec.employee_id
+    LEFT JOIN hrapp_computer c ON ec.computer_id = c.id
+    LEFT JOIN hrapp_employeetrainingprogram etp ON etp.employee_id = e.id
+    LEFT JOIN hrapp_trainingprogram tp ON etp.trainingprogram_id = tp.id
+WHERE ec.unassign_date ISNULL
+    AND e.id = 3;
+-- insert into hrapp_employeetrainingprogram ('employee_id', 'trainingprogram_id')
+-- values (12, 5)

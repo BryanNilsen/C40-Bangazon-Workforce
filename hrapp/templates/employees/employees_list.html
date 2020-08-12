@@ -8,7 +8,7 @@
 <ol>
     {% for employee in employees %}
     <li>
-        <p>{{ employee }}</p>
+        <p><a href="{% url 'hrapp:employee' employee.id %}">{{ employee }}</a></p>
         <p>Department: {{employee.department}} {% if employee.is_supervisor == 1%} - <em>(Supervisor)</em> {% endif %}
         </p>
         <p>Current computer: {{employee.computer.make}}</p>
