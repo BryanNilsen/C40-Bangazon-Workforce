@@ -2,6 +2,7 @@
 {% load humanize %}
 {% block content %}
 <h1>Departments</h1>
+<h3><a href="{% url 'hrapp:department_form' %}">Add Department</a></h3>
 <ol>
     {% for department in departments %}
     <li>

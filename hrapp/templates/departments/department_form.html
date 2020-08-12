@@ -1,0 +1,19 @@
+{% extends 'shared/base.html' %}
+{% block content %}
+
+<h1>Add Department</h1>
+<form action="{% url 'hrapp:department_list' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <label for="name">Name: </label>
+        <input id="name" type="text" name="name" value="{{ department.name }}">
+    </fieldset>
+    <fieldset>
+        <label for="budget">Budget: </label>
+        <input id="budget" type="number" name="budget" value="{{ department.budget }}">
+    </fieldset>
+    <input type="submit" value="Create" />
+
+</form>
+
+{% endblock %}
