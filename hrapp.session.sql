@@ -63,3 +63,12 @@ FROM hrapp_computer c
     LEFT JOIN hrapp_employeecomputer ec on ec.computer_id = c.id
     LEFT JOIN hrapp_employee e on ec.employee_id = e.id
 WHERE ec.unassign_date ISNULL;
+
+SELECT d.id,
+    d.name,
+    d.budget,
+    e.first_name || ' ' || e.last_name AS fullname,
+    e.id as employee_id
+FROM hrapp_department d
+LEFT JOIN hrapp_employee e ON e.department_id = d.id
+WHERE d.id = 1
