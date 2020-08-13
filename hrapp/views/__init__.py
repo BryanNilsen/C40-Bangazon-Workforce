@@ -6,6 +6,7 @@ from .departments.department_form import department_form
 from .departments.department_detail import department_details
 from .employees.employee_list import employee_list
 from .employees.employee_form import employee_form
+from .employees.employee_form import employee_edit_form
 from .employees.employee_detail import employee_details
 from .computers.computer_list import computer_list
 from .computers.computer_detail import computer_details, delete_computer

@@ -13,19 +13,20 @@ def employee_list(request):
             db_cursor = conn.cursor()
 
             db_cursor.execute("""
-                select e.id,
+                SELECT e.id,
                     e.first_name,
                     e.last_name,
                     e.start_date,
                     e.is_supervisor,
-                    d.id as department_id,
-                    d.name as department_name,
-                    c.id as computer_id,
-                    c.make as computer_make
-                from hrapp_employee e
-                    left join hrapp_department d on e.department_id = d.id
-                    left join hrapp_employeecomputer ec on e.id = ec.employee_id
-                    left join hrapp_computer c on ec.computer_id = c.id;
+                    d.id AS department_id,
+                    d.name AS department_name,
+                    c.id AS computer_id,
+                    c.make AS computer_make
+                FROM hrapp_employee e
+                    LEFT JOIN hrapp_department d ON e.department_id = d.id
+                    LEFT JOIN hrapp_employeecomputer ec ON e.id = ec.employee_id
+                    LEFT JOIN hrapp_computer c ON ec.computer_id = c.id
+                WHERE ec.unassign_date ISNULL;
             """)
 
             all_employees = []
